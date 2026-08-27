@@ -13,14 +13,34 @@
     .glass-card { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
     .glass-card:hover { border-color: rgba(99, 102, 241, 0.4); transform: translateY(-2px); }
     .glow-bg { background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15), transparent 70%); }
-    /* Add this to your <style> tag */
-.glass-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.glass-card:hover {
-  transform: translateY(-5px) scale(1.02) perspective(1000px) rotateX(2deg) rotateY(-2deg);
-  box-shadow: 20px 20px 30px rgba(0,0,0,0.5), -10px -10px 30px rgba(99, 102, 241, 0.1);
-}
+    
+    .glass-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-5px) scale(1.02) perspective(1000px) rotateX(2deg) rotateY(-2deg);
+      box-shadow: 20px 20px 30px rgba(0,0,0,0.5), -10px -10px 30px rgba(99, 102, 241, 0.1);
+    }
+
+    /* Collaborator Badge Styles */
+    .collaborator-footer {
+      margin-top: 3rem;
+      padding: 1.25rem 1.75rem;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .collaborator-info h4 { margin: 0; font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
+    .collaborator-info .creator-tag { font-size: 1.15rem; font-weight: 700; color: #c084fc; display: inline-block; margin-top: 0.2rem; }
+    .collaborator-links { display: flex; align-items: center; gap: 0.75rem; }
+    .contact-chip { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.9rem; border-radius: 10px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: #f1f5f9; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; }
+    .contact-chip:hover { background: rgba(168, 85, 247, 0.2); border-color: rgba(168, 85, 247, 0.4); transform: translateY(-2deg); }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col glow-bg antialiased">
@@ -108,6 +128,25 @@
 
     <!-- Grid Container -->
     <div id="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+    <!-- Collaborator Badge -->
+    <div class="collaborator-footer">
+      <div class="collaborator-info">
+        <h4>Lead Creator & Maintainer</h4>
+        <span class="creator-tag">PKG</span>
+      </div>
+      
+      <div class="collaborator-links">
+        <a href="https://github.com/praveen-kr2029" target="_blank" rel="noopener noreferrer" class="contact-chip">
+          <i class="fa-brands fa-github text-base"></i>
+          GitHub Profile
+        </a>
+        <a href="mailto:praveen38072@gmail.com" class="contact-chip">
+          <i class="fa-solid fa-envelope text-base"></i>
+          Contact PKG
+        </a>
+      </div>
+    </div>
 
   </main>
 
