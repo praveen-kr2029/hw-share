@@ -22,31 +22,67 @@
       box-shadow: 20px 20px 30px rgba(0,0,0,0.5), -10px -10px 30px rgba(99, 102, 241, 0.1);
     }
 
-    /* Collaborator Badge Styles */
+    /* Announcement Ticker Styles */
+    .announcement-bar {
+      background: linear-gradient(90deg, #ef4444, #f59e0b);
+      color: white;
+      padding: 8px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      z-index: 1000;
+      display: flex;
+    }
+    .scrolling-text {
+      display: inline-block;
+      animation: scroll-left 25s linear infinite;
+    }
+    @keyframes scroll-left {
+      0% { transform: translateX(100vw); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Compact Fixed Collaborator Badge Styles */
     .collaborator-footer {
-      margin-top: 3rem;
-      padding: 1.25rem 1.75rem;
-      background: rgba(255, 255, 255, 0.03);
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 50px;
+      padding: 8px 16px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      gap: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      z-index: 50;
+      transition: all 0.3s ease;
     }
-    .collaborator-info h4 { margin: 0; font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
-    .collaborator-info .creator-tag { font-size: 1.15rem; font-weight: 700; color: #c084fc; display: inline-block; margin-top: 0.2rem; }
-    .collaborator-links { display: flex; align-items: center; gap: 0.75rem; }
-    .contact-chip { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.9rem; border-radius: 10px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: #f1f5f9; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: all 0.2s ease; }
-    .contact-chip:hover { background: rgba(168, 85, 247, 0.2); border-color: rgba(168, 85, 247, 0.4); transform: translateY(-2deg); }
+    .collaborator-footer:hover {
+      border-color: rgba(168, 85, 247, 0.8);
+      transform: translateY(-3px);
+    }
+    .collaborator-info .creator-tag { font-size: 0.85rem; font-weight: 700; color: #c084fc; margin: 0; }
+    .collaborator-links { display: flex; align-items: center; gap: 0.75rem; border-left: 1px solid rgba(255,255,255,0.1); padding-left: 12px; }
+    .contact-chip { color: #94a3b8; text-decoration: none; font-size: 1rem; transition: all 0.2s ease; }
+    .contact-chip:hover { color: #f8fafc; transform: scale(1.1); }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col glow-bg antialiased">
 
+  <!-- Scrolling Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="scrolling-text">
+      🚨 UPCOMING TESTS: Sep 3 - Maths | Sep 7 - DSA | Sep 16 - COA | Sep 24 - App 🚨 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🚨 UPCOMING TESTS: Sep 3 - Maths | Sep 7 - DSA | Sep 16 - COA | Sep 24 - App 🚨
+    </div>
+  </div>
+
   <!-- Toast Container -->
-  <div id="toastContainer" class="fixed top-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+  <div id="toastContainer" class="fixed top-12 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
   <!-- Header -->
   <header class="glass-nav border-b border-slate-800/80 sticky top-0 z-40 transition-all">
@@ -128,27 +164,22 @@
 
     <!-- Grid Container -->
     <div id="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-    <!-- Collaborator Badge -->
-    <div class="collaborator-footer">
-      <div class="collaborator-info">
-        <h4>Lead Creator & Maintainer</h4>
-        <span class="creator-tag">PKG</span>
-      </div>
-      
-      <div class="collaborator-links">
-        <a href="https://github.com/praveen-kr2029" target="_blank" rel="noopener noreferrer" class="contact-chip">
-          <i class="fa-brands fa-github text-base"></i>
-          GitHub Profile
-        </a>
-        <a href="mailto:praveen38072@gmail.com" class="contact-chip">
-          <i class="fa-solid fa-envelope text-base"></i>
-          Contact PKG
-        </a>
-      </div>
-    </div>
-
   </main>
+
+  <!-- Compact Collaborator Badge -->
+  <div class="collaborator-footer">
+    <div class="collaborator-info">
+      <span class="creator-tag">Built by PKG</span>
+    </div>
+    <div class="collaborator-links">
+      <a href="https://github.com/praveen-kr2029" target="_blank" rel="noopener noreferrer" class="contact-chip" title="GitHub Profile">
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a href="mailto:praveen38072@gmail.com" class="contact-chip" title="Email Contact">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="border-t border-slate-800/60 py-6 text-center text-xs text-slate-500">
