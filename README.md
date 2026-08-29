@@ -1,6 +1,6 @@
 # Assignment Vault 🎓
 
-A centralized, full-stack academic repository built exclusively for our class section to easily access, search, and download assignment notes, lecture materials, and track upcoming class tests with Vibe Coding
+A centralized, full-stack academic repository built exclusively for our class section to easily access, search, and download assignment notes, lecture materials, and track upcoming class tests built with Vibe Coding
 
 ## Core Features
 * **Class Announcement Ticker:** Real-time scrolling banner highlighting upcoming class tests (Maths, DSA, COA, App), lab exams, and submission deadlines directly at the top of the interface.
